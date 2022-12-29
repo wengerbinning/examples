@@ -1,13 +1,19 @@
-all: helloworld
-	echo "Build all"
-	echo build $@
-	echo depends $^
-	
+programs += helloworld 
 
-helloworld: helloworld.o helloworld.c
-	echo $<.c
-	$(CC) -o helloworld helloworld.o
+helloworld-objs = helloworld.o
+helloworld-deps = 
+helloworld-incs = 
 
-clean:
-	-rm *.o
-	echo "Clean is over!"
+subdirs += 
+
+CFLAGS=$(addprefix -I, $(CURDIR)/include)
+
+
+include include/rule.mk
+
+
+
+
+
+
+
